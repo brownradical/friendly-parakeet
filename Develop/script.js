@@ -1,6 +1,6 @@
 // ARRAYS FOR CRITERIA SELECTION
 // SPECIAL CHARTACTERS ARRAY
-  var specialCharacters = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', "\", "]", "^", "_", '`', "{", '|', "}", '~'];
+  var specialCharacters = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '`', '|', '~'];
 
 // LOWERCASE ARRAY
   var lowercaseCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -11,8 +11,27 @@
 // NUMBER ARRAY
   var numberCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-// USER CRITERIA SELECTION PROMPTS
+// USER CRITERIA SELECTION INPUT PROMPTS
 // PASSWORD LENGTH PROMPT
+  function getPasswordCriterias() {
+    var length = parseInt(
+      prompt ('How long do you want your password?')
+    );
+
+    if (isNaN(length) == true) {
+      alert('Please enter a number');
+      return;
+    }
+
+    if (length < 8) {
+      alert('Password must be atleast 8 characters');
+      return;
+    }
+
+    if (length > 128) {
+      alert('Password must be no longer than 128 characters');
+      return;
+    }
 
 // PASSWORD SPECIAL CHARACTER PROMPT
 
@@ -25,17 +44,9 @@
 
 // USER CRITERIA SELECTION STORING
 
+// PASSWORD WRITING
 
-// PASSWORD GENERATION WITH CRITERIA
-
-
-// SHOW PASSWORD
-
-
-
-
-
-
+// PASSWORD GENERATION WITH CRITERIA OUTPUT
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
