@@ -1,15 +1,15 @@
 // ARRAYS FOR CRITERIA SELECTION
 // SPECIAL CHARTACTERS ARRAY
-  var specialCharacters = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '`', '|', '~'];
+  var specialCharacter = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '`', '|', '~'];
 
 // LOWERCASE ARRAY
-  var lowercaseCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  var lowercaseCharacter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 // UPPERCASE ARRAY
-  var uppercaseCharcters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  var uppercaseCharcter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 // NUMBER ARRAY
-  var numberCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  var numberCharacter = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // USER PASSWORD CRITERIA SELECTION INPUT PROMPTS
 // PASSWORD LENGTH PROMPT- user must enter a number
@@ -34,31 +34,31 @@
     }
 
 // PASSWORD SPECIAL CHARACTER PROMPT
-    var includeSpecialCharacters = confirm(
-      'Do you want special characters? Click OK for yes, CANCEL for no.'
+    var includeSpecialCharacter = confirm(
+      'Do you want to include a special character? Click OK for yes, CANCEL for no.'
     );
 
 // PASSWORD LOWERCASE PROMPT
-    var includeLowerCaseCharacters = confirm(
-      'Do you want lowercase letters? Click OK for yes, CANCEL for no.'
+    var includeLowercaseCharacter = confirm(
+      'Do you want to inlcude a lowercase letter? Click OK for yes, CANCEL for no.'
     );
 
 // PASSWORD UPPERCASE PROMPT
-    var includeUpperCaseCharacters = confirm(
-      'Do you want uppercase letters? Click OK for yes, CANCEL for no.'
+    var includeUppercaseCharacter = confirm(
+      'Do you want to include an uppercase letter? Click OK for yes, CANCEL for no.'
     );
 
 // PASSWORD NUMBER PROMPT
-    var includeNumberCharacters = confirm(
-      'Do you want numbers? Click OK for yes, CANCEL for no.'
+    var includeNumberCharacter = confirm(
+      'Do you want to include a number? Click OK for yes, CANCEL for no.'
     );
 
 // PASSWORD CRITERIA SELECTION VALIDATION - user must choose atleast one to generate password
     if (
-      includeSpecialCharacters == false &&
-      includeLowerCaseCharacters == false &&
-      includeUpperCaseCharacters == false &&
-      includeNumberCharacters == false
+      includeSpecialCharacter == false &&
+      includeLowercaseCharacter == false &&
+      includeUppercaseCharacter == false &&
+      includeNumberCharacter == false
     ) {
       alert ('Please say yes to atleast one of the password criterias to continue.');
       return;
@@ -68,10 +68,10 @@
 
     var passwordCriterias = {
       length: length,
-      includeSpecialCharacters: includeSpecialCharacters,
-      includeLowerCaseCharacters: includeLowerCaseCharacters,
-      includeUpperCaseCharacters: includeUpperCaseCharacters,
-      includeNumberCharacters: includeNumberCharacters
+      includeSpecialCharacter: includeSpecialCharacter,
+      includeLowercaseCharacter: includeLowercaseCharacter,
+      includeUppercaseCharacter: includeUppercaseCharacter,
+      includeNumberCharacter: includeNumberCharacter
     };
 
     return passwordCriterias;
@@ -79,16 +79,39 @@
 
 // PASSWORD WRITING
 // PASSWORD CRITERIA ARRAY ELEMENT RANDOMIZATION
-function getRandomPassword(criteriaElement) {
-  var criteriaIndex = Math.floor(Math.random() * criteriaElement.length);
-  var randomCriteriaElement = criteriaElement[criteriaIndex];
+function getRandomCriteriaElement(criteriaArray) {
+  var criteriaIndex = Math.floor(Math.random() * criteriaArray.length);
+  var randomCriteriaArrayElement = criteriaArray[criteriaIndex];
 
-  return randomCriteriaElement;
+  return randomCriteriaArrayElement;
 }
-//
+//PASSWORD GENERATION USING USER CRITERIA INPUTS
+function generatePassword () {
+  var options = getPasswordCriterias ();
+  var result = [];
+  var possibleCharacters = [];
+  var guaranteedCharacters = [];
 
+  if (options.includeSpecialCharacter) {
+    possibleCharacter = possibleCharacter.concat(specialCharacter);
+    guaranteedCharacter.push(getRandomCriteriaElement(specialCharacter));
+  }
 
-// PASSWORD GENERATION WITH CRITERIA OUTPUT
+  if (options.includeLowercaseCharacter) {
+    possibleCharacter = possibleCharacter.concat(lowercaseCharacter);
+    guaranteedCharacter.push(getRandomCriteriaElement(lowercaseCharacter));
+  }
+
+  if (options.includeUppercaseCharacter) {
+    possibleCharacter = possibleCharacter.concat(uppercaseCharacter);
+    guaranteedCharacter.push(getRandomCriteriaElement(uppercaseCharacter));
+  }
+
+  if (options.includeNumberCharacter) {
+    possibleCharacter = possibleCharacter.concat(numberCharacter);
+    guaranteedCharacter.push(getRandomCriteriaElement(numberCharacter));
+  }
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
