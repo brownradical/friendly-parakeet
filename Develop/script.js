@@ -1,4 +1,4 @@
-// ARRAYS FOR CRITERIA SELECTION
+// ARRAYS FOR SELECTION
 // SPECIAL CHARTACTERS ARRAY
 var specialCharacters = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '`', '|', '~'];
 
@@ -115,7 +115,7 @@ function generatePassword() {
     guaranteedCharacters.push(getRandom(numberCharacters));
   }
 
-  for (var i = 0; i < criterias.length; i++) {
+  for (var i = 0; i < options.length; i++) {
     var possibleCharacter = getRandom(possibleCharacters);
     result.push(possibleCharacter);
   }
