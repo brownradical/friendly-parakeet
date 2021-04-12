@@ -11,8 +11,8 @@
 // NUMBER ARRAY
   var numberCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-// USER CRITERIA SELECTION INPUT PROMPTS
-// PASSWORD LENGTH PROMPT
+// USER PASSWORD CRITERIA SELECTION INPUT PROMPTS
+// PASSWORD LENGTH PROMPT- user must enter a number
   function getPasswordCriterias() {
     var length = parseInt(
       prompt ('How long do you want your password?')
@@ -52,6 +52,17 @@
     var includeNumberCharacters = confirm(
       'Do you want numbers? Click OK for yes, CANCEL for no.'
     );
+
+// PASSWORD CRITERIA SELECTION VALIDATION - user must choose atleast one to generate password
+    if (
+      includeSpecialCharacters == false &&
+      includeLowerCaseCharacters == false &&
+      includeUpperCaseCharacters == false &&
+      includeNumberCharacters == false
+    ) {
+      alert ('Please say yes to atleast one of the password criterias to continue.');
+      return;
+    }
 
 // USER CRITERIA SELECTION STORING
 
