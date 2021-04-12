@@ -1,42 +1,42 @@
 // ARRAYS FOR CRITERIA SELECTION
 // SPECIAL CHARTACTERS ARRAY
-  var specialCharacters = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '`', '|', '~'];
+var specialCharacters = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '`', '|', '~'];
 
 // LOWERCASE ARRAY
-  var lowercaseCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var lowercaseCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 // UPPERCASE ARRAY
-  var uppercaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var uppercaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 // NUMBER ARRAY
-  var numberCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var numberCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 
 // USER PASSWORD CRITERIA SELECTION INPUT PROMPTS
 // PASSWORD LENGTH PROMPT- user must enter a number
-  function getPasswordCriterias() {
-    var length = parseInt(
-      prompt ('How long do you want your password?')
-    );
+function getPasswordCriterias() {
+  var length = parseInt(
+    prompt ('How long do you want your password?')
+  );
 
-    if (isNaN(length) == true) {
-      alert('Please enter a number');
-      return;
-    }
+  if (isNaN(length) == true) {
+    alert('Please enter a number');
+    return;
+  }
 
-    if (length < 8) {
-      alert('Password must be atleast 8 characters');
-      return;
-    }
+  if (length < 8) {
+    alert('Password must be atleast 8 characters');
+    return;
+  }
 
-    if (length > 128) {
-      alert('Password must be no longer than 128 characters');
-      return;
-    }
+  if (length > 128) {
+    alert('Password must be no longer than 128 characters');
+    return;
+  }
 
 // PASSWORD SPECIAL CHARACTER PROMPT
-    var includeSpecialCharacters = confirm(
-      'Do you want to include a special character? Click OK for yes, CANCEL for no.'
+  var includeSpecialCharacters = confirm(
+    'Do you want to include a special character? Click OK for yes, CANCEL for no.'
     );
 
 // PASSWORD LOWERCASE PROMPT
@@ -81,46 +81,46 @@
 
 // PASSWORD WRITING
 // PASSWORD CRITERIA ARRAY ELEMENT RANDOMIZATION
-function getRandomCriteriaElement(criteriaArray) {
-  var criteriaIndex = Math.floor(Math.random() * criteriaArray.length);
-  var randomCriteriaArrayElement = criteriaArray[criteriaIndex];
+function getRandom(criArray) {
+  var criIndex = Math.floor(Math.random() * criArray.length);
+  var randomCriEle = criArray[criIndex];
 
-  return randomCriteriaArrayElement;
+  return randomCriEle;
 }
 
 //PASSWORD GENERATION USING USER CRITERIA INPUTS
-function generatePassword () {
-  var options = getPasswordCriterias ();
+function generatePassword() {
+  var options = getPasswordCriterias();
   var result = [];
   var possibleCharacters = [];
   var guaranteedCharacters = [];
 
   if (options.includeSpecialCharacters) {
-    possibleCharacters = possibleCharacters.concat(specialCharacter);
-    guaranteedCharacters.push(getRandomCriteriaElement(specialCharacters));
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
+    guaranteedCharacters.push(getRandom(specialCharacters));
   }
 
   if (options.includeLowercaseCharacters) {
     possibleCharacters = possibleCharacters.concat(lowercaseCharacters);
-    guaranteedCharacters.push(getRandomCriteriaElement(lowercaseCharacters));
+    guaranteedCharacters.push(getRandom(lowercaseCharacters));
   }
 
   if (options.includeUppercaseCharacters) {
     possibleCharacters = possibleCharacters.concat(uppercaseCharacters);
-    guaranteedCharacters.push(getRandomCriteriaElement(uppercaseCharacters));
+    guaranteedCharacters.push(getRandom(uppercaseCharacters));
   }
 
   if (options.includeNumberCharacters) {
     possibleCharacters = possibleCharacters.concat(numberCharacters);
-    guaranteedCharacters.push(getRandomCriteriaElement(numberCharacters));
+    guaranteedCharacters.push(getRandom(numberCharacters));
   }
 
-  for (var i = 0; i < options.length; i++) {
-    var possibleCharacter = getRandomCriteriaElement(possibleCharacters);
+  for (var i = 0; i < criterias.length; i++) {
+    var possibleCharacter = getRandom(possibleCharacters);
     result.push(possibleCharacter);
   }
 
-  for (var i = 0; guaranteedCharacters.length; i++) {
+  for (var i = 0; i < guaranteedCharacters.length; i++) {
     result[i] = guaranteedCharacters[i];
   }
 
