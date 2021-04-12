@@ -34,13 +34,24 @@
     }
 
 // PASSWORD SPECIAL CHARACTER PROMPT
+    var includeSpecialCharacters = confirm(
+      'Do you want special characters? Click OK for yes, CANCEL for no.'
+    );
 
 // PASSWORD LOWERCASE PROMPT
+    var includeLowerCaseCharacters = confirm(
+      'Do you want lowercase letters? Click OK for yes, CANCEL for no.'
+    );
 
 // PASSWORD UPPERCASE PROMPT
+    var includeUpperCaseCharacters = confirm(
+      'Do you want uppercase letters? Click OK for yes, CANCEL for no.'
+    );
 
-// PASS NUMBER PROMPT
-
+// PASSWORD NUMBER PROMPT
+    var includeNumberCharacters = confirm(
+      'Do you want numbers? Click OK for yes, CANCEL for no.'
+    );
 
 // USER CRITERIA SELECTION STORING
 
