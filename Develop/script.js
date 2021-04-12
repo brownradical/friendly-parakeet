@@ -66,6 +66,17 @@
 
 // USER CRITERIA SELECTION STORING
 
+    var passwordCriterias = {
+      length: length,
+      includeSpecialCharacters: includeSpecialCharacters,
+      includeLowerCaseCharacters: includeLowerCaseCharacters,
+      includeUpperCaseCharacters: includeUpperCaseCharacters,
+      includeNumberCharacters: includeNumberCharacters
+    };
+
+    return passwordCriterias;
+  }
+
 // PASSWORD WRITING
 
 // PASSWORD GENERATION WITH CRITERIA OUTPUT
