@@ -78,6 +78,15 @@
   }
 
 // PASSWORD WRITING
+// PASSWORD CRITERIA ARRAY ELEMENT RANDOMIZATION
+function getRandomPassword(criteriaElement) {
+  var criteriaIndex = Math.floor(Math.random() * criteriaElement.length);
+  var randomCriteriaElement = criteriaElement[criteriaIndex];
+
+  return randomCriteriaElement;
+}
+//
+
 
 // PASSWORD GENERATION WITH CRITERIA OUTPUT
 
