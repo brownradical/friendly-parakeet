@@ -32,7 +32,7 @@ Project is created with:
 
 ## Screenshots 
 The following screenshots are what the website currently looks like :camera_flash: :
-![screenshot of Friendly Parakeet website](../develop/images/screenshot/)
+![screenshot of Friendly Parakeet website](./develop/assets/images/screenshot.png)
 
 	
 ## View updates
